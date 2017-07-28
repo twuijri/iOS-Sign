@@ -1,7 +1,6 @@
 # !/bin/bash
 
 
-# read -p $'\e[31mكم :  \e[0m' NUM
 read -p $'\e[31mpath mobileprovision :  \e[0m' MOBILEPROV
 read -p $'\e[31mpath Foldar :  \e[0m' pathFoldar
 find -d "$pathFoldar" \( -name "*.ipa" \) > "$HOME/appPlus.txt"
@@ -11,10 +10,7 @@ while IFS='' read -r SOURCEIPA || [[ -n "$SOURCEIPA" ]];
 do
 
   APPNAME=$(basename "${SOURCEIPA%.*}")
-  # read -p $'\e[31mName application :  \e[0m' APPNAME
-  # read -p $'\e[31mpath ipa :  \e[0m' SOURCEIPA
-  # read -p $'\e[31mpath mobileprovision :  \e[0m' MOBILEPROV
-
+  
 
   echo "Start resign the app..."
 
