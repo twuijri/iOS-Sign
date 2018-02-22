@@ -4,6 +4,10 @@
 read -p $'\e[31mpath mobileprovision :  \e[0m' MOBILEPROV
 read -p $'\e[31mpath Foldar :  \e[0m' pathFoldar
 find -d "$pathFoldar" \( -name "*.ipa" \) > "$HOME/appPlus.txt"
+<<<<<<< HEAD
+=======
+# touch $HOME/Desktop/linkDwonlod.txt
+>>>>>>> b8b6261cda4f3e5a56dfc317198dbed04a3f0f41
 touch $HOME/uplode.txt
 
 # start loop                  ###################################################
@@ -11,6 +15,13 @@ while IFS='' read -r SOURCEIPA || [[ -n "$SOURCEIPA" ]];
 do
 
   APPNAME=$(basename "${SOURCEIPA%.*}")
+<<<<<<< HEAD
+=======
+  # read -p $'\e[31mName application :  \e[0m' APPNAME
+  # read -p $'\e[31mpath ipa :  \e[0m' SOURCEIPA
+  # read -p $'\e[31mpath mobileprovision :  \e[0m' MOBILEPROV
+
+>>>>>>> b8b6261cda4f3e5a56dfc317198dbed04a3f0f41
 
   echo "Start resign the app..."
 
@@ -24,12 +35,21 @@ do
 
 
   # Must be modified
+<<<<<<< HEAD
   DEVELOPER="iPhone Distribution: XXXXX XXXXXXXX (XXXXXXXXX)"
   BUNDLEID="com.XXX.$APPNAME"
   ipServer="root@100.1.1.1"
   userNameServer="root"
   linkFoldar=""
   WebSite=""
+=======
+  DEVELOPER="iPhone Distribution: Asim Alotaibi (9XX532447M)"
+  BUNDLEID="co.v33.$APPNAME"
+  ipServer="root@151.80.198.157"
+  userNameServer="root"
+  linkFoldar="/home/v33/web/v33.co/public_html"
+  WebSite="v33.co"
+>>>>>>> b8b6261cda4f3e5a56dfc317198dbed04a3f0f41
 
 
 
@@ -87,6 +107,41 @@ do
   mv $IpaName $HOME/Desktop/appPlus/$newFoldar/
 
   echo "Finish resign. Output:$IpaName"
+<<<<<<< HEAD
+=======
+  # # Start upload Diawi #########
+  #
+  #
+  # echo -e $"${RED}   naw upload : $APPNAME ${NC}"
+  # output=$(curl https://upload.diawi.com/ -F token='wRafPWI4qqClvX6I9fJTTodgraQpwPzocR8H6MQpeb' \
+  # -F file=@$HOME/Desktop/appPlus/$newFoldar/$IpaName \
+  # -F callback_emails='asimappios@gmail.com')
+  # output=${output//:/: }
+  # set $(awk '{for(n=1;n<=NF;n++)
+  #             {if($n~"job")F=$(n+1);}}
+  #            END {gsub("[\",){}]","",F);
+  #             print F}' <<<"$output")
+  # output=$1
+  # sleep 7
+  # output=$(curl -s "https://upload.diawi.com/status?token=wRafPWI4qqClvX6I9fJTTodgraQpwPzocR8H6MQpeb&job=$output")
+  # output=${output//:/: }
+  # output=${output//,/, }
+  #
+  # set $(awk '{for(n=1;n<=NF;n++)
+  #            {if($n~"hash")F=$(n+1);}}
+  #           END {gsub("[\",){}]","",F);
+  #            print F}' <<<"$output")
+  # output=$1
+  # link="https://i.diawi.com/$output"
+  #     # wget link
+  #     cd $OUTDIR
+  #     wget $link
+  #     linkDiawi=$(grep "app-file" $OUTDIR/$output | cut -d'"' -f 4)
+  #     # end
+  #
+  # # end upload Diawi #########
+
+>>>>>>> b8b6261cda4f3e5a56dfc317198dbed04a3f0f41
 
   cat > $HOME/Desktop/appPlus/$newFoldar/$APPNAME.plist <<END
   <?xml version="1.0" encoding="UTF-8"?>
@@ -154,6 +209,15 @@ $APPNAME
 https://$WebSite/appPlus/$newFoldar
 END
 
+<<<<<<< HEAD
+=======
+# linkDiawi=$(cat $HOME/Desktop/linkDiawi.txt)
+# cat > $HOME/Desktop/linkDiawi.txt <<END
+# $linkDiawi
+# $APPNAME
+# $link
+# END
+>>>>>>> b8b6261cda4f3e5a56dfc317198dbed04a3f0f41
 
 uplode=$(cat $HOME/uplode.txt)
 cat > $HOME/uplode.txt <<END
@@ -183,6 +247,48 @@ link diawi
 $linkDiawi
 END
 rm -fr $HOME/Desktop/linkDiawi.txt
+<<<<<<< HEAD
+=======
+# # upload diawi
+# rm -fr $HOME/Desktop/linkDownload.txt
+# touch $HOME/Desktop/linkDownload.txt
+# find -d "$HOME/Desktop/appPlus/" \( -name "*.ipa" \) > "$HOME/appPlus.txt"
+# while IFS='' read -r PATHIPA || [[ -n "$PATHIPA" ]];
+# do
+# APPNAME=$(basename "${PATHIPA%.*}")
+# echo -e $"${RED}   naw upload : $APPNAME ${NC}"
+# output=$(curl https://upload.diawi.com/ -F token='wRafPWI4qqClvX6I9fJTTodgraQpwPzocR8H6MQpeb' \
+# -F file=@$PATHIPA \
+# -F callback_emails='asimappios@gmail.com')
+# output=${output//:/: }
+# set $(awk '{for(n=1;n<=NF;n++)
+#             {if($n~"job")F=$(n+1);}}
+#            END {gsub("[\",){}]","",F);
+#             print F}' <<<"$output")
+# output=$1
+# sleep 5
+# output=$(curl -s "https://upload.diawi.com/status?token=wRafPWI4qqClvX6I9fJTTodgraQpwPzocR8H6MQpeb&job=$output")
+# output=${output//:/: }
+# output=${output//,/, }
+#
+# set $(awk '{for(n=1;n<=NF;n++)
+#            {if($n~"hash")F=$(n+1);}}
+#           END {gsub("[\",){}]","",F);
+#            print F}' <<<"$output")
+# output=$1
+# link="https://i.diawi.com/$output"
+#
+# linkDownload=$(cat $HOME/Desktop/linkDownload.txt)
+# cat > $HOME/Desktop/linkDownload.txt <<END
+# $linkDownload
+# $APPNAME
+# $link
+# END
+#
+# done < "$HOME/appPlus.txt"
+# rm -fr $HOME/appPlus.txt
+# # end upload diawi
+>>>>>>> b8b6261cda4f3e5a56dfc317198dbed04a3f0f41
 
 conact sftp
 
@@ -193,6 +299,10 @@ $comSftp
 exit
 EOF
 
+<<<<<<< HEAD
+=======
+# echo -e "                              ${RED}https://$WebSite/appPlus/$newFoldar${NC}"
+>>>>>>> b8b6261cda4f3e5a56dfc317198dbed04a3f0f41
 echo -e "${Green} *******Congratulations All programs have been upload******* ${NC}"
 rm -fr $HOME/uplode.txt
 rm -fr $HOME/Desktop/appPlus
