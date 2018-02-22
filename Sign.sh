@@ -1,6 +1,6 @@
 # !/bin/bash
 
-
+# open termnal "xcode-select --install"
 read -p $'\e[31mpath mobileprovision :  \e[0m' MOBILEPROV
 read -p $'\e[31mpath Foldar :  \e[0m' pathFoldar
 find -d "$pathFoldar" \( -name "*.ipa" \) > "$HOME/appPlus.txt"
@@ -10,7 +10,7 @@ while IFS='' read -r SOURCEIPA || [[ -n "$SOURCEIPA" ]];
 do
 
   APPNAME=$(basename "${SOURCEIPA%.*}")
-  
+
 
   echo "Start resign the app..."
 
